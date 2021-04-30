@@ -20,6 +20,7 @@ An example response might be:
 {
  “plaintext” : “THISISASECRETMESSAGE”
 }
+
 Notes:
 • All input and output messages are in upper case, with no spaces.
 • The Caesar cipher shift used by you enemies changes between messages, but it is
