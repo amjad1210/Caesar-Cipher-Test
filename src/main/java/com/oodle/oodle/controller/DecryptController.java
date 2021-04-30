@@ -2,7 +2,7 @@ package com.oodle.oodle.controller;
 
 import com.oodle.oodle.dto.DecryptedResponse;
 import com.oodle.oodle.dto.EncryptedMessage;
-import com.oodle.oodle.service.CrackerService;
+import com.oodle.oodle.service.DecryptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,18 +12,18 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Amjad
  */
 @RestController
-public class CrackerController {
+public class DecryptController {
 
-    private final CrackerService crackerService;
+    private final DecryptService decryptService;
 
     @Autowired
-    public CrackerController(CrackerService crackerService) {
-        this.crackerService = crackerService;
+    public DecryptController(DecryptService decryptService) {
+        this.decryptService = decryptService;
     }
 
-    @PostMapping("/crack")
-    public DecryptedResponse crackPayload(@RequestBody EncryptedMessage encryptedMessage) {
-        return crackerService.crackMessage(encryptedMessage);
+    @PostMapping("/decrypt")
+    public DecryptedResponse decryptPayload(@RequestBody EncryptedMessage encryptedMessage) {
+        return decryptService.decryptMessage(encryptedMessage);
     }
 
 }

@@ -7,14 +7,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
-class CrackerControllerSmokeTest {
+class DecryptControllerSmokeTest {
 
     @Autowired
-    private CrackerController crackerController;
+    private DecryptController decryptController;
 
     @Test
     void contextLoads() {
-        assertNotNull(crackerController);
+        assertNotNull(decryptController);
     }
 
 }

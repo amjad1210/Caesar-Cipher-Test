@@ -11,13 +11,13 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 /**
  * @author Amjad
  */
-public class CrackerServiceTest {
+public class DecryptServiceTest {
 
-    private CrackerService crackerService;
+    private DecryptService decryptService;
 
     @BeforeEach
     public void setUp() {
-        crackerService = new CrackerService();
+        decryptService = new DecryptService();
     }
 
     @Test
@@ -25,38 +25,38 @@ public class CrackerServiceTest {
         //Message contains spaces.
         var containsSpace = new EncryptedMessage("VJKUKU CUGETGV OGUUCIG", new String[]{"THI", "MES"});
         assertThrows(InvalidMessageException.class, () -> {
-            crackerService.crackMessage(containsSpace);
+            decryptService.decryptMessage(containsSpace);
         });
 
         //Message contains lowercase characters.
         var containsLowercase = new EncryptedMessage("VJKUKUCUGETGVOGUUdfIG", new String[]{"THI", "MES"});
         assertThrows(InvalidMessageException.class, () -> {
-            crackerService.crackMessage(containsLowercase);
+            decryptService.decryptMessage(containsLowercase);
         });
     }
 
     @Test
     void crackMessagePositiveShift() {
         var valid1 = new EncryptedMessage("VJKUKUCUGETGVOGUUCIG", new String[]{"THI", "MES"});
-        assertEquals("THISISASECRETMESSAGE", crackerService.crackMessage(valid1).getPlainText());
+        assertEquals("THISISASECRETMESSAGE", decryptService.decryptMessage(valid1).getPlainText());
 
         var valid2 = new EncryptedMessage("NKRRUCUXRJ", new String[]{"HELLO", "WORLD"});
-        assertEquals("HELLOWORLD", crackerService.crackMessage(valid2).getPlainText());
+        assertEquals("HELLOWORLD", decryptService.decryptMessage(valid2).getPlainText());
 
         var valid3 = new EncryptedMessage("CNQILEM", new String[]{"IT", "WORK"});
-        assertEquals("ITWORKS", crackerService.crackMessage(valid3).getPlainText());
+        assertEquals("ITWORKS", decryptService.decryptMessage(valid3).getPlainText());
     }
 
     @Test
     void crackMessageNegativeShift() {
         var valid1 = new EncryptedMessage("OCDNDNVNZXMZOHZNNVBZ", new String[]{"THI", "MES"});
-        assertEquals("THISISASECRETMESSAGE", crackerService.crackMessage(valid1).getPlainText());
+        assertEquals("THISISASECRETMESSAGE", decryptService.decryptMessage(valid1).getPlainText());
 
         var valid2 = new EncryptedMessage("LIPPSASVPH", new String[]{"HEL", "WOR"});
-        assertEquals("HELLOWORLD", crackerService.crackMessage(valid2).getPlainText());
+        assertEquals("HELLOWORLD", decryptService.decryptMessage(valid2).getPlainText());
 
         var valid3 = new EncryptedMessage("BMPHKDL", new String[]{"IT", "WOR"});
-        assertEquals("ITWORKS", crackerService.crackMessage(valid3).getPlainText());
+        assertEquals("ITWORKS", decryptService.decryptMessage(valid3).getPlainText());
     }
 
 }

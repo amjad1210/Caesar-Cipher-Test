@@ -10,14 +10,14 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  * @author Amjad
  */
 @SpringBootTest
-public class CrackerServiceSmokeTest {
+public class DecryptServiceSmokeTest {
 
     @Autowired
-    private CrackerService crackerService;
+    private DecryptService decryptService;
 
     @Test
     void contextLoads() {
-        assertNotNull(crackerService);
+        assertNotNull(decryptService);
     }
 
 }

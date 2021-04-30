@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
  * @author Amjad
  */
 @Service
-public class CrackerService {
+public class DecryptService {
 
     /**
      * Decrypt message and return plaintext response.
@@ -18,7 +18,7 @@ public class CrackerService {
      * @param encryptedMessage
      * @return decryptedResponse
      */
-    public DecryptedResponse crackMessage(EncryptedMessage encryptedMessage) {
+    public DecryptedResponse decryptMessage(EncryptedMessage encryptedMessage) {
         var message = encryptedMessage.getCipherText();
         var cribs = encryptedMessage.getCribs();
 
